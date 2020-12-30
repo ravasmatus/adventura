@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.target=Item
+comment1.params=name\ description
+comment1.target=Item(java.lang.String,\ java.lang.String)
+comment10.params=item
+comment10.target=int\ compareTo(Item)
+comment2.params=name\ description\ moveable
+comment2.target=Item(java.lang.String,\ java.lang.String,\ boolean)
+comment3.params=
+comment3.target=java.lang.String\ getName()
+comment4.params=
+comment4.target=java.lang.String\ getDescription()
+comment5.params=description
+comment5.target=void\ setDescription(java.lang.String)
+comment6.params=
+comment6.target=boolean\ isMoveable()
+comment7.params=moveable
+comment7.target=void\ setMoveable(boolean)
+comment8.params=o
+comment8.target=boolean\ equals(java.lang.Object)
+comment9.params=
+comment9.target=int\ hashCode()
+numComments=11
