@@ -82,4 +82,5 @@ public class Bag {
 
     }
 
+    public TreeSet<Item> getTreeset() {return bagContent;};
 }

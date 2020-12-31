@@ -35,6 +35,9 @@ public class Game
         allActions.addAction(new ActionPick(this));
         allActions.addAction(new ActionSeeContent(this));
         allActions.addAction(new ActionUnlock(this));
+        allActions.addAction(new ActionBuy(this));
+        allActions.addAction(new ActionItemsInPlace(this));
+        
        
 
         gameOver = true;

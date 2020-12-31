@@ -25,6 +25,7 @@ public class Place implements INamed, Comparable<Place>
     private Item key;
     private Set<Place> neighbors;
     private Map<String, Item> items;
+    private Map<String, People> people;
 
     /**
      * Konstruktor třídy, vytvoří prostor se zadaným názvem a popisem.
@@ -40,6 +41,7 @@ public class Place implements INamed, Comparable<Place>
 
         neighbors = new TreeSet<>();
         items = new TreeMap<>();
+        people = new TreeMap<>();
     }
 
     public Place(String name, String description, boolean locked)
@@ -51,6 +53,7 @@ public class Place implements INamed, Comparable<Place>
 
         neighbors = new TreeSet<>();
         items = new TreeMap<>();
+        people = new TreeMap<>();
     }
 
     /**
@@ -104,10 +107,16 @@ public class Place implements INamed, Comparable<Place>
             itemNames += " " + itemName;
         }
 
+        String peopleNames = "Ľudia:";
+        for (String personName : people.keySet()){
+        peopleNames += " " + personName;
+        }
+        
         return "Jsi v prostoru '" + name + "'.\n"
         + description + "\n\n"
         + neighborNames + "\n"
-        + itemNames;
+        + itemNames+ "\n"
+        + peopleNames;
     }
 
     /**
@@ -147,6 +156,11 @@ public class Place implements INamed, Comparable<Place>
         items.put(item.getName(), item);
     }
 
+     public void addPerson(People person)
+    {
+        people.put(person.getName(), person);
+    }
+    
     /**
      * Metoda zkontroluje, zda prostor obsahuje předmět s daným názvem.
      *
@@ -158,6 +172,13 @@ public class Place implements INamed, Comparable<Place>
         return items.containsKey(itemName);
     }
 
+    
+      public boolean containsPerson(String person)
+    {
+        return people.containsKey(person);
+    }
+
+  
     /**
      * Metoda vyhledá v prostoru předmět s daným názvem a vrátí na něj odkaz.
      *
@@ -169,6 +190,11 @@ public class Place implements INamed, Comparable<Place>
         return items.get(itemName);
     }
 
+     public People getPerson(String personName)
+    {
+        return people.get(personName);
+    }
+    
     /**
      * Vrátí kolekci všech předmětů v prostoru.
      *
@@ -179,6 +205,11 @@ public class Place implements INamed, Comparable<Place>
         return new HashSet<>(items.values());
     }
 
+    public Collection<People> getPeople()
+    {
+        return new HashSet<>(people.values());
+    }
+    
     /**
      * Metoda vyhledá v prostoru předmět s daným názvem, odstraní ho z prostoru a vrátí na něj odkaz.
      *

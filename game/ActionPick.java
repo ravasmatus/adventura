@@ -51,30 +51,31 @@ public class ActionPick implements IAction {
         if (parameters.length > 1) {
             return "Tomu nerozumím, neumím sebrat více předmětů současně.";
         }
-        //# každý parametr příkazu (námět na možné rozšíření)
         String itemName = parameters[0];
         Place currentPlace = game.getWorld().getCurrentPlace();
 
-        if (!currentPlace.containsItem(itemName)) {
+        if (!currentPlace.containsItem(itemName)) { //zistím, či v danej lokácii predmet je
             return "Předmět '" + itemName + "' tady není.";
         }
 
         Item item = currentPlace.getItem(itemName);
 
-        if (!item.isMoveable()) {
+        if (!item.isMoveable()) { //zistím, či je prenositeľný
             return "Předmět '" + itemName + "' fakt neuneseš.";
         }
 
-
         Bag bag = game.getBag();
+        
+        if(item.isMoneyRequired()){ //zistím, či daný predmet je potrebné kúpiť. Ak áno, hráč hru prehrá.
+            game.setGameOver(true);
+            return "Pokúsil si sa predmet '" + itemName + "' zobrať bez zaplatenia. Personál na teba zavolal políciu. Prehral si.";
+        }
 
-        if (!bag.putItem(item)) {
+        if (!bag.putItem(item)) { //v prípade, že má plný inventár
             return "Tvůj inventář je plný, '" + itemName + "' nebylo možné sebrat.";
         }
 
-
         currentPlace.removeItem(itemName);
-
         return "Sebral(a) jsi předmět '" + itemName + "' a uložil(a) ho do inventáře.";
     }
 }

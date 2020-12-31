@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=ActionBuy
+comment1.params=game
+comment1.target=ActionBuy(Game)
+comment2.params=
+comment2.target=java.lang.String\ getName()
+comment3.params=parameters
+comment3.target=java.lang.String\ execute(java.lang.String[])
+numComments=4

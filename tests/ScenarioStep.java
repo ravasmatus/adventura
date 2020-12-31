@@ -1,6 +1,5 @@
 package tests;
 
-//cyklus najskôr skontroluje, či je zadané miesto v susedstve, potom či je zamknuté a čipackage tests;
 
 import java.util.Arrays;
 import java.util.Objects;
@@ -81,6 +80,8 @@ public class ScenarioStep
      * Názvy objektů v batohu po vykonání příkazu.
      */
     public final String[] bag;
+    
+    public final String[] people;
 
     /**
      * Vytvoří krok umož?ující otestování správné funkce hry. Index tohoto kroku bude
@@ -95,9 +96,9 @@ public class ScenarioStep
      * @param bag        názvy objektů v batohu
      */
     public ScenarioStep(String command, String message, String place,
-                        String[] neighbors, String[] items, String[] bag)
+                        String[] neighbors, String[] items, String[] bag, String[] people)
     {
-        this(++lastIndex, command, message, place, neighbors, items, bag);
+        this(++lastIndex, command, message, place, neighbors, items, bag, people);
     }
 
     /**
@@ -114,7 +115,7 @@ public class ScenarioStep
      * @param bag        názvy objektů v batohu
      */
     public ScenarioStep(int index, String command, String message, String place,
-                       String[] neighbors, String[] items, String[] bag)
+                       String[] neighbors, String[] items, String[] bag, String[] people)
     {
         this.index     = lastIndex = index;
         this.command   = command;
@@ -123,6 +124,7 @@ public class ScenarioStep
         this.neighbors = neighbors;
         this.items     = items;
         this.bag       = bag;
+        this.people    = people;
     }
 
     /**
@@ -141,6 +143,7 @@ public class ScenarioStep
         hash = 97 * hash + Arrays.deepHashCode(this.neighbors);
         hash = 97 * hash + Arrays.deepHashCode(this.items);
         hash = 97 * hash + Arrays.deepHashCode(this.bag);
+        hash = 97 * hash + Arrays.deepHashCode(this.people);
         return hash;
     }
 
@@ -160,6 +163,8 @@ public class ScenarioStep
                 + "\nProstor:  " + place
                 + "\nSousedé:  " + Arrays.toString(neighbors)
                 + "\nPředměty: " + Arrays.toString(items)
-                + "\nBatoh:    " + Arrays.toString(bag);
+                + "\nBatoh:    " + Arrays.toString(bag)
+                + "\nĽudia:    " + Arrays.toString(people);
+                
     }
 }

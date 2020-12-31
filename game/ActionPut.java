@@ -51,7 +51,7 @@ public class ActionPut implements IAction {
         if (parameters.length > 1) {
             return "Tomu nerozumím, neumím položit více předmětů současně.";
         }
-        //# každý parametr příkazu (námět na možné rozšíření)
+
         String itemName = parameters[0];
         Place currentPlace = game.getWorld().getCurrentPlace();
         Bag bag = game.getBag();

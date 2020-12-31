@@ -1,6 +1,5 @@
 package game;
 
-
 public class ActionUnlock implements IAction {
     private Game game;
 
@@ -19,14 +18,12 @@ public class ActionUnlock implements IAction {
             return "Nerozumiem, musis napisat co mam odomknut";
         }
 
-
         if (parameters.length > 1) {  // pokiaľ hráč zadá viac parametrov
             return "Tomu nerozumím, odomknut vies len jednu miestnost.";
         }
 
         String targetPlaceNameForUnlock = parameters[0];
         Bag bag = game.getBag();
-
 
         
         for (Place place : game.getWorld().getCurrentPlace().getNeighbors()) {
@@ -38,22 +35,19 @@ public class ActionUnlock implements IAction {
             //ak sú podmienky splnené, odomkne miestnosť
 
             if (targetPlaceNameForUnlock.equals(place.getName()) && place.isLocked() && !bag.containsItemName(place.getKey().getName())) {
-               
+
                 return "Miestnost " + place.getName() + " nemozes odomknut, pretoze ti chyba predmet " + place.getKey().getName() ;
             }
             //ak nemáme potrebný predmet
-              if (targetPlaceNameForUnlock.equals(place.getName()) && !place.isLocked()) {
+            if (targetPlaceNameForUnlock.equals(place.getName()) && !place.isLocked()) {
                 return "Miestnost " + targetPlaceNameForUnlock + " uz bola odokmnuta!";
-               
+
             }
             //ak sa pokúsime odomknúť už odomknutú miestnosť
         }
 
-
         return "Miestnost " + targetPlaceNameForUnlock + " nemozes odomknut, pretoze je daleko od teba!";
 
-
     }
-
 
 }

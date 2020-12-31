@@ -5,17 +5,19 @@ public class Item implements INamed, Comparable<Item>
     private String name;
     private String description;
     private boolean moveable;
+    private boolean moneyRequired;
 
     public Item(String name, String description)
     {
-        this(name, description, true);
+        this(name, description, true, false);
     }
 
-    public Item(String name, String description, boolean moveable)
+    public Item(String name, String description, boolean moveable, boolean moneyRequired)
     {
         this.name = name;
         this.description = description;
         this.moveable = moveable;
+        this.moneyRequired = moneyRequired;
     }
 
     @Override
@@ -63,6 +65,18 @@ public class Item implements INamed, Comparable<Item>
         }
 
         return false;
+    }
+
+    
+     public boolean isMoneyRequired()
+    {
+        return moneyRequired;
+    }
+    
+
+    public void setMoneyRequired(boolean MoneyRequired)
+    {
+        this.moneyRequired = moneyRequired;
     }
 
     @Override

@@ -64,6 +64,17 @@ public class ActionMove implements IAction
             return "Miestnost " + place.getName() + "je uzamknuta.";
             }
             
+            Bag bag = game.getBag();
+            
+            if(targetPlaceName.equals("tramvaj") && !bag.containsItemName("jízdenka") ){
+            game.setGameOver(true);
+            return "Do miesta " +targetPlaceName + " si nastupil bez predmetu jízdenka. Chytil ťa revízor. Prehral si.";
+            
+           
+            
+            
+            }
+            
             if (targetPlaceName.equals(place.getName())) {
                 game.getWorld().setCurrentPlace(place);
 

@@ -19,7 +19,7 @@ public enum Scenario implements IScenario
     + "Nevíte-li, jak pokračovat, zadejte příkaz 'nápověda'.",
 
     "bar",
-    new String[] { "kvetinarstvo","tram_olšanská" },
+    new String[] { "kvetinarstvo","trafika","tram_olšanská" },
     new String[] { "klíče", "peňaženka", "bunda" },
     new String[] { }
     ),
@@ -28,7 +28,7 @@ public enum Scenario implements IScenario
     "Sebral(a) jsi předmět 'klíče' a uložil(a) ho do inventáře.",
 
     "bar",
-    new String[] { "kvetinarstvo","tram_olšanská" },
+    new String[] { "kvetinarstvo","trafika","tram_olšanská" },
     new String[] { "peňaženka", "bunda" },
     new String[] { "klíče" }
     ),
@@ -37,7 +37,7 @@ public enum Scenario implements IScenario
     "Sebral(a) jsi předmět 'peňaženka' a uložil(a) ho do inventáře.",
 
     "bar",
-    new String[] { "kvetinarstvo","tram_olšanská" },
+    new String[] { "kvetinarstvo","trafika","tram_olšanská" },
     new String[] { "bunda"},
     new String[] { "klíče","peňaženka" }
     ),
@@ -45,58 +45,85 @@ public enum Scenario implements IScenario
     new ScenarioStep("jdi kvetinarstvo",
     "Jsi v prostoru 'kvetinarstvo'.\n"
     + "Kvetinárstvo, kde sa predávajú kvety non-stop.\n\n"
-    + "Východy: bar tram_olšanská\n"
-    + "Předměty: hnojivo kvety",
+    + "Východy: bar trafika tram_olšanská\n"
+    + "Předměty: hnojivo kvety\n"
+    + "Ľudia: predavač upratovač",
 
     "kvetinarstvo",
-    new String[] { "bar", "tram_olšanská" },
+    new String[] { "bar","trafika", "tram_olšanská" },
     new String[] { "hnojivo", "kvety" },
     new String[] { "klíče","peňaženka" }
     ),
     
-    new ScenarioStep("seber kvety",
-    "Sebral(a) jsi předmět 'kvety' a uložil(a) ho do inventáře.",
+    new ScenarioStep("kup kvety predavač",
+    "Kúpil(a) jsi předmět 'kvety' a uložil(a) ho do inventáře.",
 
     "kvetinarstvo",
-    new String[] { "bar", "tram_olšanská" },
+    new String[] { "bar","trafika", "tram_olšanská" },
     new String[] { "hnojivo"},
     new String[] { "klíče","peňaženka","kvety" }
     ),
     
+     new ScenarioStep("jdi trafika",
+    "Jsi v prostoru 'trafika'.\n"
+    + "Obyčajná trafika pri centre Prahy, otvorená non-stop.\n\n"
+    + "Východy: bar kvetinarstvo tram_olšanská\n"
+    + "Předměty: jízdenka noviny\n"
+    + "Ľudia: predavač zákazník",
+
+    "trafika",
+    new String[] { "bar", "kvetinarstvo", "tram_olšanská" },
+    new String[] {"jízdenka", "noviny"},
+    new String[] { "klíče","peňaženka","kvety" }
+    ),
+    
+     new ScenarioStep("kup jízdenka predavač",
+    "Kúpil(a) jsi předmět 'jízdenka' a uložil(a) ho do inventáře.",
+
+    "trafika",
+    new String[] { "bar","kvetinarstvo", "tram_olšanská" },
+    new String[] { "noviny"},
+    new String[] { "jízdenka","klíče","peňaženka","kvety" }
+    ),
+    
+    
     new ScenarioStep("jdi tram_olšanská",
     "Jsi v prostoru 'tram_olšanská'.\n"
     + "Tramvajová zastávka Olšanská, na ktorej čakáš na tramvaj na zastávku Štepánska.\n\n"
-    + "Východy: bar kvetinarstvo tramvaj\n"
-    + "Předměty: vodka",
+    + "Východy: bar kvetinarstvo trafika tramvaj\n"
+    + "Předměty: vodka\n"
+    + "Ľudia:",
 
     "tram_olšanská",
-    new String[] { "bar", "kvetinarstvo", "tramvaj" },
+    new String[] { "bar", "kvetinarstvo","trafika", "tramvaj" },
     new String[] {"vodka"},
-    new String[] { "klíče","peňaženka","kvety" }
+    new String[] { "jízdenka","klíče","peňaženka","kvety" }
     ),
 
     new ScenarioStep("jdi tramvaj",
     "Jsi v prostoru 'tramvaj'.\n"
     + "Obyčajná nočná tramvaj, ktorou sa chceš odviezť domov.\n\n"
     + "Východy: tram_olšanská tram_štepánska\n"
-    + "Předměty: sedačka",
+    + "Předměty: sedačka\n"
+    + "Ľudia:",
 
     "tramvaj",
     new String[] { "tram_olšanská","tram_štepánska" },
     new String[] { "sedačka" },
-    new String[] { "klíče","peňaženka","kvety" }
+    new String[] { "jízdenka","klíče","peňaženka","kvety" }
     ),
     
      new ScenarioStep("jdi tram_štepánska",
     "Jsi v prostoru 'tram_štepánska'.\n"
     + "Tramvajová zastávka Štepánska, odkiaľ sa potrebuješ dostať domov\n\n"
     + "Východy: tramvaj vchod_domov(zamknuto)\n"
-    + "Předměty: skriňa",
+    + "Předměty: skriňa\n"
+    + "Ľudia:",
 
     "tram_štepánska",
     new String[] { "tramvaj","vchod_domov" },
     new String[] { "skriňa" },
-    new String[] { "klíče","peňaženka","kvety" }
+    new String[] { "klíče","peňaženka","jízdenka","kvety" }
     ),
 
     new ScenarioStep("odemkni vchod_domov",
@@ -112,24 +139,26 @@ public enum Scenario implements IScenario
     "Jsi v prostoru 'vchod_domov'.\n"
     + "Vchod do domu, cez ktorý musíš prejsť.\n\n"
     + "Východy: domov tram_štepánska\n"
-    + "Předměty:",
+    + "Předměty:\n"
+    + "Ľudia:",
 
     "vchod_domov",
     new String[] { "domov","tram_štepánska" },
     new String[] { },
-    new String[] { "klíče","peňaženka","kvety" }
+    new String[] { "klíče","peňaženka","jízdenka","kvety" }
     ),
     
        new ScenarioStep("jdi domov",
     "Jsi v prostoru 'domov'.\n"
     + "Toto je tvoj domov, kde bývaš so svojou priateľkou. Je na teba nahnevaná, musíš si ju udobriť.\n\n"
     + "Východy: vchod_domov\n"
-    + "Předměty:",
+    + "Předměty:\n"
+    + "Ľudia: priateľka",
 
     "domov",
     new String[] { "vchod_domov" },
     new String[] { },
-    new String[] { "klíče","peňaženka","kvety" }
+    new String[] { "klíče","peňaženka","jízdenka","kvety" }
     ),
 
     new ScenarioStep("poloz kvety",
@@ -139,7 +168,7 @@ public enum Scenario implements IScenario
     "domov",
     new String[] { "vchod_domov" },
     new String[] { "kvety"},
-    new String[] { "klíče","peňaženka" }
+    new String[] { "klíče","jízdenka","peňaženka" }
     )
     ),
 

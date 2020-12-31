@@ -25,6 +25,7 @@ public class World
     {
         Place bar = new Place("bar", "Toto je bar, v ktorom si mal párty");
         Place florist = new Place("kvetinarstvo", "Kvetinárstvo, kde sa predávajú kvety non-stop.");
+        Place newsstand = new Place("trafika", "Obyčajná trafika pri centre Prahy, otvorená non-stop.");
         Place tramOlsanska = new Place("tram_olšanská", "Tramvajová zastávka Olšanská, na ktorej čakáš na tramvaj na zastávku Štepánska.");
         Place tram = new Place("tramvaj", "Obyčajná nočná tramvaj, ktorou sa chceš odviezť domov.");
         Place tramStepanska = new Place("tram_štepánska", "Tramvajová zastávka Štepánska, odkiaľ sa potrebuješ dostať domov");
@@ -33,13 +34,21 @@ public class World
 
         bar.addNeighbor(florist);
         bar.addNeighbor(tramOlsanska);
+        bar.addNeighbor(newsstand);
 
         florist.addNeighbor(bar);
         florist.addNeighbor(tramOlsanska);
+        florist.addNeighbor(newsstand);
 
         tramOlsanska.addNeighbor(florist);
         tramOlsanska.addNeighbor(bar);
         tramOlsanska.addNeighbor(tram);
+        tramOlsanska.addNeighbor(newsstand);
+        
+        newsstand.addNeighbor(florist);
+        newsstand.addNeighbor(bar);
+        newsstand.addNeighbor(tramOlsanska);
+        
 
         tram.addNeighbor(tramOlsanska);
         tram.addNeighbor(tramStepanska);
@@ -70,20 +79,26 @@ public class World
                 "Bunda, aby ti nebola zima.");
 
         Item flowers = new Item(VICTORIOUS_ITEM_FLOWERS_NAME,
-                "Krásny zväzok kvetov, ktorý by určite niekoho potešil");
+                "Krásny zväzok kvetov, ktorý by určite niekoho potešil", true, true);
 
         Item fertilizer = new Item("hnojivo",
-                "Hnojivo na izbové rastliny, ktoré doma pestujete.");
+                "Hnojivo na izbové rastliny, ktoré doma pestujete.", true, true);
                 
 
         Item seat = new Item("sedačka",
-                "Sedačka v tramvaji. Krásne by doplnila interiér u teba doma", false);
+                "Sedačka v tramvaji. Krásne by doplnila interiér u teba doma", false, false);
 
         Item closet = new Item("skriňa",
-                "Veľká skriňa na šaty. Niekto sa jej potreboval zbaviť.", false);
+                "Veľká skriňa na šaty. Niekto sa jej potreboval zbaviť.", false, false);
 
         Item vodka = new Item("vodka",
                 "Fľaša už otvorenej vodky.");
+                
+        Item ticket = new Item("jízdenka",
+        "30-minútový lístok na MHD", true, true);
+        
+        Item newspaper = new Item("noviny",
+        "Včerajšie noviny.", true, true);
 
        
 
@@ -97,12 +112,27 @@ public class World
 
         tramOlsanska.addItem(vodka);
         
+        newsstand.addItem(ticket);
+        newsstand.addItem(newspaper);
+        
         tram.addItem(seat);
         
         tramStepanska.addItem(closet);
 
         currentPlace = bar;
         
+        People cashier = new People("predavač", true);
+        People cleaner = new People("upratovač", false);
+        People customer = new People("zákazník", false);
+        People girlfriend = new People ("priateľka", false);
+        
+        florist.addPerson(cashier);
+        florist.addPerson(cleaner);
+        
+        newsstand.addPerson(cashier);
+        newsstand.addPerson(customer);
+        
+        home.addPerson(girlfriend);
         
     }
 

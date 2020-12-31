@@ -4,6 +4,7 @@ import game.Game;
 import game.Item;
 import game.Place;
 import game.Bag;
+import game.People;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -47,7 +48,8 @@ public class Tests
                     + "\nProstor:     " + (step.place == null ? "<nevyhodnocuje se>" : step.place)
                     + "\nSousedé:     " + (step.neighbors == null ? "<nevyhodnocuje se>" : collectStrings(step.neighbors))
                     + "\nPředměty:    " + (step.items == null ? "<nevyhodnocuje se>" : collectStrings(step.items))
-                    + "\nBatoh:       " + (step.bag == null ? "<nevyhodnocuje se>" : collectStrings(step.bag)));
+                    + "\nBatoh:       " + (step.bag == null ? "<nevyhodnocuje se>" : collectStrings(step.bag))
+                    + "\nĽudia:       " + (step.people == null ? "<nevyhodnocuje se>" : collectStrings(step.people)));
             }
 
             System.out.println("==================================================");
@@ -96,6 +98,7 @@ public class Tests
             CheckResult neighborsCheck = checkNeighbors(step, game);
             CheckResult placeItemsCheck = checkPlaceItems(step, game);
             CheckResult bagItemsCheck = checkBagItems(step, game);
+            CheckResult placePeopleCheck = checkPlacePeople(step, game);
 
             System.out.println("\n" + step.index + ". " + step.command  // Vypíšeme informace
                 + "\n--------------------------------------------------"
@@ -107,11 +110,12 @@ public class Tests
                 + "\nSousedé:     " + neighborsCheck.getMessage()
                 + "\nPředměty:    " + placeItemsCheck.getMessage()
                 + "\nBatoh:       " + bagItemsCheck.getMessage()
+                + "\nĽudia:       " + placePeopleCheck.getMessage()
                 + "\n==================================================");
 
             // Vyhodnotíme dopad kroku na celkový výsledek scénáře
             success = success && actionResultCheck.isSuccess() && placeCheck.isSuccess()
-            && neighborsCheck.isSuccess() && placeItemsCheck.isSuccess()
+            && neighborsCheck.isSuccess() && placeItemsCheck.isSuccess() && placePeopleCheck.isSuccess()
             && bagItemsCheck.isSuccess();
         }
 
@@ -189,11 +193,11 @@ public class Tests
         if (step.bag == null) {
             return CheckResult.IGNORED_RESULT;
         }
-        
+        Bag bag = game.getBag();
         Set<String> wantedBag = Set.of(step.bag);
         Set<String> actualBag = new HashSet<>();
         
-        if(wantedBag.size() == bag.getBag().size()){
+        if(wantedBag.size() == bag.getTreeset().size()){
             return new CheckResult(true, "OK");
         }
 
@@ -201,6 +205,27 @@ public class Tests
         return new CheckResult(false, "FAIL (test očekává: " + collectStrings(step.bag) + ")" );
     }
 
+    private CheckResult checkPlacePeople(ScenarioStep step, Game game)
+    {
+        if (step.items == null) {
+            return CheckResult.IGNORED_RESULT;
+        }
+
+        Set<String> wantedPeople = Set.of(step.people);
+        Set<String> actualPeople = new HashSet<>();
+
+        for (People people : game.getWorld().getCurrentPlace().getPeople()) {
+            actualPeople.add(people.getName());
+        }
+
+        if (wantedPeople.size() == actualPeople.size() && !actualPeople.retainAll(wantedPeople)) {
+            return new CheckResult(true, "OK");
+        }
+
+        return new CheckResult(false, "FAIL (test očekává: " + collectStrings(step.people) + ")" );
+        
+    }
+    
     private static String collectStrings(String[] strings)
     {
         return Stream.of(strings)
