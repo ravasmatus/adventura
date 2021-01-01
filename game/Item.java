@@ -1,5 +1,5 @@
 package game;
-
+//trieda Item - každá položka má 5 atribúty - meno, popis, info o tom, či je prenositeľná a či je potrebné za ňu zaplatiť 
 public class Item implements INamed, Comparable<Item>
 {
     private String name;
@@ -7,12 +7,12 @@ public class Item implements INamed, Comparable<Item>
     private boolean moveable;
     private boolean moneyRequired;
 
-    public Item(String name, String description)
+    public Item(String name, String description) //konštruktor
     {
         this(name, description, true, false);
     }
 
-    public Item(String name, String description, boolean moveable, boolean moneyRequired)
+    public Item(String name, String description, boolean moveable, boolean moneyRequired) //konštruktor
     {
         this.name = name;
         this.description = description;
@@ -20,29 +20,29 @@ public class Item implements INamed, Comparable<Item>
         this.moneyRequired = moneyRequired;
     }
 
-    @Override
+    @Override //metóda, kt. získame meno
     public String getName()
     {
         return name;
     }
 
-    public String getDescription()
+    public String getDescription() //metóda, kt. získame popis
     {
         return description;
     }
 
-    public void setDescription(String description)
+    public void setDescription(String description) //metóda, kt. nastavíme popis
     {
         this.description = description;
     }
 
-    public boolean isMoveable()
+    public boolean isMoveable() //metóda, kt. získame info o tom, či je prenositeľný
     {
         return moveable;
     }
     
 
-    public void setMoveable(boolean moveable)
+    public void setMoveable(boolean moveable) //metóda, kt. nastavíme info o tom, či je prenositeľný
     {
         this.moveable = moveable;
     }
@@ -68,13 +68,13 @@ public class Item implements INamed, Comparable<Item>
     }
 
     
-     public boolean isMoneyRequired()
+     public boolean isMoneyRequired() //metóda, kt. získame info o tom, či je potrebné za ňu platiť
     {
         return moneyRequired;
     }
     
 
-    public void setMoneyRequired(boolean MoneyRequired)
+    public void setMoneyRequired(boolean MoneyRequired) //metóda, kt. nastavíme info o tom, či je prenositeľný
     {
         this.moneyRequired = moneyRequired;
     }

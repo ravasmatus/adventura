@@ -1114,6 +1114,112 @@ public enum Scenario implements IScenario
     new String[] { }
     )
  
+    ),
+    
+    
+    LOSER_TRAM ( //test scenára,v ktorom hráč prehrá, lebo nastúpi do tramvaje bez jízdenky
+    new 
+
+    ScenarioStep(0, "",
+    "Vitajte!\n"
+    + "Ste v bare, trošku ste dezorientovaný a potrebujete sa dostať domov.\n"
+    + "Nevíte-li, jak pokračovat, zadejte příkaz 'nápověda'.",
+
+    "bar",
+    new String[] { "kvetinarstvo","trafika","tram_olšanská" },
+    new String[] { "klíče", "peňaženka", "bunda" },
+    new String[] { },
+    new String[] { }
+    ),
+    
+
+    new ScenarioStep("seber peňaženka",
+    "Sebral(a) jsi předmět 'peňaženka' a uložil(a) ho do inventáře.", 
+
+    "bar",
+    new String[] { "kvetinarstvo","trafika","tram_olšanská" },
+    new String[] { "klíče", "bunda" },
+    new String[] {  "peňaženka" },
+    new String[] { }
+    ),
+    
+     new ScenarioStep("jdi tram_olšanská",
+    "Jsi v prostoru 'tram_olšanská'.\n"
+    + "Tramvajová zastávka Olšanská, na ktorej čakáš na tramvaj na zastávku Štepánska.\n\n"
+    + "Východy: bar kvetinarstvo trafika tramvaj\n"
+    + "Předměty: vodka\n"
+    + "Ľudia:",
+
+    "tram_olšanská",
+    new String[] { "bar", "kvetinarstvo","trafika", "tramvaj" },
+    new String[] {"vodka"},
+    new String[] { "peňaženka"},
+    new String[] {}
+    ),
+
+    new ScenarioStep("jdi tramvaj",
+    "Do miesta tramvaj si nastupil bez predmetu jízdenka. Chytil ťa revízor. Prehral si.",
+
+    "tram_olšanská",
+    new String[] { "bar", "kvetinarstvo","trafika", "tramvaj" },
+    new String[] {"vodka"},
+    new String[] { "peňaženka"},
+    new String[] {}
+    )
+ 
+    ),
+    
+    
+    LOSER_THIEF ( //test scenára,v ktorom hráč prehrá, lebo namiesto kúpenia niečo zoberie
+    new 
+
+    ScenarioStep(0, "",
+    "Vitajte!\n"
+    + "Ste v bare, trošku ste dezorientovaný a potrebujete sa dostať domov.\n"
+    + "Nevíte-li, jak pokračovat, zadejte příkaz 'nápověda'.",
+
+    "bar",
+    new String[] { "kvetinarstvo","trafika","tram_olšanská" },
+    new String[] { "klíče", "peňaženka", "bunda" },
+    new String[] { },
+    new String[] { }
+    ),
+    
+
+    new ScenarioStep("seber peňaženka",
+    "Sebral(a) jsi předmět 'peňaženka' a uložil(a) ho do inventáře.", 
+
+    "bar",
+    new String[] { "kvetinarstvo","trafika","tram_olšanská" },
+    new String[] { "klíče", "bunda" },
+    new String[] {  "peňaženka" },
+    new String[] { }
+    ),
+    
+      new ScenarioStep("jdi trafika",
+    "Jsi v prostoru 'trafika'.\n"
+    + "Obyčajná trafika pri centre Prahy, otvorená non-stop.\n\n"
+    + "Východy: bar kvetinarstvo tram_olšanská\n"
+    + "Předměty: jízdenka noviny\n"
+    + "Ľudia: predavač zákazník",
+
+    "trafika",
+    new String[] { "bar", "kvetinarstvo", "tram_olšanská" },
+    new String[] {"jízdenka", "noviny"},
+    new String[] {"peňaženka" },
+    new String[] { "predavač", "zákazník"}
+    ),
+    
+    new ScenarioStep("seber jízdenka",
+    "Pokúsil si sa predmet 'jízdenka' zobrať bez zaplatenia. Personál na teba zavolal políciu. Prehral si.",
+
+    "trafika",
+   new String[] { "bar", "kvetinarstvo", "tram_olšanská" },
+    new String[] {"jízdenka", "noviny"},
+    new String[] {"peňaženka" },
+    new String[] { "predavač", "zákazník"}
+    )
+ 
     );
 
 

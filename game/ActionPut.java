@@ -53,15 +53,15 @@ public class ActionPut implements IAction {
         }
 
         String itemName = parameters[0];
-        Place currentPlace = game.getWorld().getCurrentPlace();
-        Bag bag = game.getBag();
-        if (!bag.containsItemName(itemName)) {
+        Place currentPlace = game.getWorld().getCurrentPlace(); //získame si aktuálne miesto, kde sa hráč nachádza
+        Bag bag = game.getBag(); //získame aktuálny obsah bagu
+        if (!bag.containsItemName(itemName)) { //skontrolujeme, či daný predmet v taške je, ak nie vypíše danä hlášku
             return "Předmět '" + itemName + "' není v taske.";
         }
-        Item item = bag.getItemByName(itemName);
-        bag.deleteItem(item);
+        Item item = bag.getItemByName(itemName); //názov predmetu priradíme už celému predmetu so všetkými atribútmi
+        bag.deleteItem(item);//odstránime položku z bagu
 
-        currentPlace.addItem(item);
+        currentPlace.addItem(item); //pridáme do aktuálnej oblasti
 
         return "Polozil(a) jsi předmět '" + itemName + "' do mistnosti.";
     }

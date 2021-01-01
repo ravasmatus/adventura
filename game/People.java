@@ -1,29 +1,32 @@
 package game;
 
+
+//trieda people - každý človek bude mať 2 atribúty - meno a informáciu, či dokáže niečo predávať.
+
 public class People implements INamed, Comparable<People>
 {
     private String name;
     private boolean saleperson;
 
-    public People(String name, boolean saleperson)
+    public People(String name, boolean saleperson) //konštruktor
     {
         this.name = name;
         this.saleperson = saleperson;
     }
 
-    @Override
+    @Override //metóda, ktorou získame meno
     public String getName()
     {
         return name;
     }
 
-    public boolean isSalePerson()
+    public boolean isSalePerson()//metóda, ktorou získame true/false, či dokáže predávať
     {
         return saleperson;
     }
     
 
-    public void setSaleperson(boolean saleperson)
+    public void setSaleperson(boolean saleperson) //metóda, ktorou nastavíme info, či dokáže predávať
     {
         this.saleperson = saleperson;
     }
