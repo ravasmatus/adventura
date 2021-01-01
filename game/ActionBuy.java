@@ -51,6 +51,11 @@ public class ActionBuy implements IAction {
         
         }
         
+         if (!people.isSalePerson()){
+            return "Predmet " + itemName + " si nemôžeš kúpiť od " + personName + ". Skús to u niekoho iného.";
+        
+        }
+        
         
           if (item.isMoneyRequired() && !bag.containsItemName("peňaženka") ) { //ak si chcem niečo kúpiť, ale nemám peňaženku
             return "Předmět '" + itemName + "' sa kupit nemozes, chyba ti penazenka!";
@@ -62,11 +67,7 @@ public class ActionBuy implements IAction {
 
         
         
-        if (!people.isSalePerson()){
-            return "Predmet " + itemName + " si nemôžeš kúpiť od " + personName + ". Skús to u niekoho iného.";
-        
-        }
-        
+       
         currentPlace.removeItem(itemName);
         
         return "Kúpil(a) jsi předmět '" + itemName + "' a uložil(a) ho do inventáře.";
