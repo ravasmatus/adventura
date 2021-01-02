@@ -1,7 +1,7 @@
 package game;
 
 /**
- * Třída implementující příkaz pro sbírání předmětů.
+ * Třída implementující příkaz pre pokladanie predmetov.
  *
  * @author Jan Říha
  * @version ZS-2020, 2020-12-14
@@ -19,7 +19,7 @@ public class ActionPut implements IAction {
     }
 
     /**
-     * Metoda vrací název příkazu tj.&nbsp; slovo <b>seber</b>.
+     * Metoda vrací název příkazu tj.&nbsp; slovo <b>poloz</b>.
      *
      * @return název příkazu
      */
@@ -29,15 +29,10 @@ public class ActionPut implements IAction {
     }
 
     /**
-     * Metoda se pokusí sebrat předmět z aktuálního prostoru a uložit ho do hráčova
-     * inventáře. Nejprve zkontroluje počet parametrů. Pokud nebyl zadán žádný
-     * parametr <i>(tj. neznáme požadovaný předmět)</i>, nebo bylo zadáno dva a
-     * více parametrů <i>(tj. hráč chce sebrat více předmětů současně)</i>, vrátí
-     * chybové hlášení. Pokud byl zadán právě jeden parametr, zkontroluje, zda
-     * v aktuálním prostoru je předmět s daným názvem, zda je přenositelný a zda
-     * na něj hráč má v inventáři místo <i>(tj. zda ho lze sebrat)</i>. Pokud ne,
-     * vrátí chybové hlášení. Pokud všechny kontroly proběhnou v pořádku, provede
-     * přesun předmětu z prostoru do inventáře a vrátí informaci o sebrání předmětu.
+     * Metóda sa pokúsi odstrániť predmet z hráčoveho bagu a pridať ho do aktuálnej lokácie.
+     * Najskôr skontroluje počet parametrov - v prípade žiadneho, alebo viac ako jedného vypíše chybové hlásenie.
+     * Potom metóda získa aktuálne miesto a aktuálny obsah bagu. Následne skontroluje, či sa daný predmet v bagu nachádza. 
+     * V prípade úspechu získame konkrétnu vec(nie len jej názov), odstránime ju z bagu a pridáme do lokácie.
      *
      * @param parameters parametry příkazu <i>(očekává se pole s jedním prvkem)</i>
      * @return informace pro hráče, které hra vypíše na konzoli

@@ -1,9 +1,13 @@
 #BlueJ class context
 comment0.target=ActionUnlock
+comment0.text=\r\n\ Trieda,\ ktor\u00E1\ implementuje\ pr\u00EDkaz\ odomkni.\ \r\n\r\n\ @author\ Mat\u00FA\u0161\ Ravas\r\n\ @version\ 2021-01-02\r\n
 comment1.params=game
 comment1.target=ActionUnlock(Game)
+comment1.text=\r\n\ Konstruktor\ t\u0159\u00EDdy.\r\n\r\n\ @param\ game\ hra,\ ve\ kter\u00E9\ se\ bude\ p\u0159\u00EDkaz\ pou\u017E\u00EDvat\r\n
 comment2.params=
 comment2.target=java.lang.String\ getName()
+comment2.text=\r\n\ Metoda\ vrac\u00ED\ n\u00E1zev\ p\u0159\u00EDkazu\ tj.&nbsp;\ slovo\ <b>odemkni</b>.\r\n\r\n\ @return\ n\u00E1zev\ p\u0159\u00EDkazu\r\n
 comment3.params=parameters
 comment3.target=java.lang.String\ execute(java.lang.String[])
+comment3.text=\r\n\ V\ p\u0159\u00EDpad\u011B,\ \u017Ee\ je\ metoda\ zavol\u00E1na\ bez\ parametr\u016F\ alebo\ viac\ ako\ 1\ parametrami,\ hr\u00E1\u010Dovi\ sa\ \r\n\ vyp\u00ED\u0161e\ chybov\u00E9\ hl\u00E1senie.\ Met\u00F3da\ pomocou\ cyklusu\ prejde\ akut\u00E1lne\ susedn\u00E9\ lok\u00E1cie.\ V\ pr\u00EDpade,\ \u017Ee\ je\ dan\u00E1\ miestnos\u0165\r\n\ zamknut\u00E1\ a\ z\u00E1rove\u0148\ m\u00E1me\ v\ bagu\ potrebn\u00FD\ predmet,\ odomkne\ sa.\ V\ pr\u00EDpade,\ \u017Ee\ n\u00E1m\ k\u013E\u00FA\u010D\ ch\u00FDba,\ vyp\u00ED\u0161e\ chybov\u00E9\ hl\u00E1senie.\r\n\ Skontroluje\ taktie\u017E,\ \u010Di\ u\u017E\ dan\u00E1\ miestnos\u0165\ nebola\ odomknut\u00E1\ -\ v\ tomto\ pr\u00EDpade\ o\ tom\ informuje\ hr\u00E1\u010Da.\r\n\r\n\ @param\ parameters\ parametry\ p\u0159\u00EDkazu\ <i>(o\u010Dak\u00E1vame\ 1\ parameter)</i>\r\n\ @return\ informace\ pro\ hr\u00E1\u010De,\ kter\u00E9\ hra\ vyp\u00ED\u0161e\ na\ konzoli\r\n
 numComments=4

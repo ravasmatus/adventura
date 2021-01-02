@@ -1,57 +1,58 @@
 package game;
 
-
-//trieda people - každý človek bude mať 2 atribúty - meno a informáciu, či dokáže niečo predávať.
-
+/**
+ * Trieda, ktorá predstavuje jednotlivých ľudí. V datovém atributu
+ * {@link #name} uchovává meno danej osoby. V datovém atributu
+ * {@link #saleperson} uchovává informáciu, či je človek spôsobilý niečo predávať. 
+ *
+ * @author Matúš Ravas
+ * @version 2021-01-02
+ */
 public class People implements INamed, Comparable<People>
 {
     private String name;
     private boolean saleperson;
 
+     /**
+     * Konstruktor třídy, ktorý vytvorí konkrétneho človeka. Má dva parametre - meno a boolean true/false.
+     */
     public People(String name, boolean saleperson) //konštruktor
     {
         this.name = name;
         this.saleperson = saleperson;
     }
 
-    @Override //metóda, ktorou získame meno
+    /**
+     * Metóda, ktorá nám vráti názov človeka.
+     * 
+     * @return name - názov
+     */
+    @Override
     public String getName()
     {
         return name;
     }
 
-    public boolean isSalePerson()//metóda, ktorou získame true/false, či dokáže predávať
+     /**
+     * Metóda, ktorou získame true/false, či dokáže predávať.
+     * 
+     * @return saleperson - true/false
+     */
+    public boolean isSalePerson()
     {
         return saleperson;
     }
-    
 
-    public void setSaleperson(boolean saleperson) //metóda, ktorou nastavíme info, či dokáže predávať
+     /**
+     * Metóda, ktorou nastavíme info true/false, či dokáže predávať.
+     * 
+     * @param saleperson - true/false
+     */
+    public void setSaleperson(boolean saleperson) 
     {
         this.saleperson = saleperson;
     }
 
-    @Override
-    public boolean equals(final Object o)
-    {
-        if (o == this) {
-            return true;
-        }
-
-        if (o == null) {
-            return false;
-        }
-
-        if (o instanceof People) {
-            People people = (People) o;
-
-            return name.equals(people.getName());
-        }
-
-        return false;
-    }
-
-    
    
     @Override
     public int hashCode()
@@ -59,18 +60,21 @@ public class People implements INamed, Comparable<People>
         return name.hashCode();
     }
 
-
     public int compareTo(People people)
     {
         return name.compareTo(people.getName());
     }
 
     //pomocou prepísaním metódy toString sa pri výpise objektu tohoto typu vypíše len jeho názov
+     /**
+     * Pomocou prepísaním metódy toString sa pri výpise objektu tohoto typu vypíše len jeho názov.
+     * 
+     *
+     */
     @Override
     public String toString()
     {
         return name+" ";
-
 
     }
 }

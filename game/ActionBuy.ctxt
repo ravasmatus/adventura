@@ -1,9 +1,13 @@
 #BlueJ class context
 comment0.target=ActionBuy
+comment0.text=\r\n\ Trieda,\ ktor\u00E1\ implementuje\ pr\u00EDkaz\ k\u00FApi\u0165.\ \r\n\r\n\ @author\ Mat\u00FA\u0161\ Ravas\r\n\ @version\ 2021-01-02\r\n
 comment1.params=game
 comment1.target=ActionBuy(Game)
+comment1.text=\r\n\ Konstruktor\ t\u0159\u00EDdy.\r\n\r\n\ @param\ game\ hra,\ ve\ kter\u00E9\ se\ bude\ p\u0159\u00EDkaz\ pou\u017E\u00EDvat\r\n
 comment2.params=
 comment2.target=java.lang.String\ getName()
+comment2.text=\r\n\ Metoda\ vrac\u00ED\ n\u00E1zev\ p\u0159\u00EDkazu\ tj.&nbsp;\ slovo\ <b>kup</b>.\r\n\r\n\ @return\ n\u00E1zev\ p\u0159\u00EDkazu\r\n
 comment3.params=parameters
 comment3.target=java.lang.String\ execute(java.lang.String[])
+comment3.text=\r\n\ V\ p\u0159\u00EDpad\u011B,\ \u017Ee\ je\ metoda\ zavol\u00E1na\ bez\ parametr\u016F,\ s\ jedn\u00FDm\ alebo\ viac\ ako\ 2\ parametrami,\ hr\u00E1\u010Dovi\ sa\ \r\n\ vyp\u00ED\u0161e\ chybov\u00E9\ hl\u00E1senie.\ Met\u00F3da\ najsk\u00F4r\ over\u00ED,\ \u010Di\ sa\ dan\u00E1\ vec\ nach\u00E1dza\ v\ danom\ priestore,\ potom\ \u010Di\ je\ potrebn\u00E9\r\n\ ju\ zak\u00FApi\u0165.\ N\u00E1sledne\ zist\u00ED,\ \u010Di\ sa\ dan\u00FD\ \u010Dlovek\ na\ mieste\ nach\u00E1dza,\ a\ \u010Di\ je\ dan\u00E1\ osoba\ sp\u00F4sobil\u00E1\ n\u00E1m\ ho\ preda\u0165.\r\n\ Ako\ posledn\u00E9\ over\u00ED,\ \u010Di\ m\u00E1me\ pri\ sebe\ pe\u0148a\u017Eenku\ a\ \u010Di\ nem\u00E1me\ pln\u00FD\ invent\u00E1r.\ \r\n\r\n\ @param\ parameters\ parametry\ p\u0159\u00EDkazu\ <i>(o\u010Dak\u00E1vame\ 2\ parametre)</i>\r\n\ @return\ informace\ pro\ hr\u00E1\u010De,\ kter\u00E9\ hra\ vyp\u00ED\u0161e\ na\ konzoli\r\n
 numComments=4

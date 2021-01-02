@@ -11,11 +11,11 @@ import java.util.TreeSet;
  * Třída představuje prostor <i>(místo, místnost, lokaci)</i> ve scénáři hry.
  * Každý prostor má název, který ho jednoznačně identifikuje. Může mít sousední
  * prostory, do kterých z něj lze odejít. Odkazy na všechny sousední prostory
- * jsou uložené v kolekci. Prostor také může obsahovat předměty. Odkazy na
- * všechny předměty v prostoru jsou uložené v mapě.
+ * jsou uložené v kolekci. Prostor také může obsahovat předměty a ľudí. Odkazy na
+ * všechny předměty a ľudí v prostoru jsou uložené v mapě.
  *
- * @author Jan Říha
- * @version ZS-2020, 2020-12-14
+ * @author Jan Říha, edited by Matúš Ravas
+ * @version 2021-01-02
  */
 public class Place implements INamed, Comparable<Place>
 {
@@ -156,6 +156,11 @@ public class Place implements INamed, Comparable<Place>
         items.put(item.getName(), item);
     }
 
+    /**
+     * Metoda přidá človeka <i>(objekt třídy {@link People})</i> do prostoru.
+     *
+     * @param person človeka, který bude do prostoru přidán
+     */
      public void addPerson(People person)
     {
         people.put(person.getName(), person);
@@ -172,7 +177,11 @@ public class Place implements INamed, Comparable<Place>
         return items.containsKey(itemName);
     }
 
-    
+    /**
+     * Metoda skontroluje, či sa v danom mieste nachádza názov daného človeka.
+     *
+     * @param person reťazec, ktorý bude skontrolovaný
+     */
       public boolean containsPerson(String person)
     {
         return people.containsKey(person);
@@ -190,6 +199,12 @@ public class Place implements INamed, Comparable<Place>
         return items.get(itemName);
     }
 
+    /**
+     * Metoda vyhledá v prostoru človeka s daným názvem a vrátí na něj odkaz.
+     *
+     * @param personName název človeka
+     * @return človek s daným menom; {@code null}, pokud v prostoru není
+     */
      public People getPerson(String personName)
     {
         return people.get(personName);
@@ -205,6 +220,11 @@ public class Place implements INamed, Comparable<Place>
         return new HashSet<>(items.values());
     }
 
+    /**
+     * Vrátí kolekci všech ľudí v prostoru.
+     *
+     * @return kolekce ľudí v prostoru
+     */
     public Collection<People> getPeople()
     {
         return new HashSet<>(people.values());
@@ -291,22 +311,40 @@ public class Place implements INamed, Comparable<Place>
         return name.compareTo(place.getName());
     }
 
-    //vrati hodnotu, ci je miestnost zamknuta alebo nie
+    /**
+     * Vráti informáciu, či je daná miestnosť zamknutá.
+     *
+     * @return boolean, true/false
+     */
     public boolean isLocked()
     {
         return locked;
     }
 
-    //zamkne alebo odomkne miestnost
+    /**
+     * Nastaví informáciu, či je daná miestnosť zamknutá.
+     *
+     * @param boolean, true/false
+     */
     public void setLocked(boolean locked)
     {
         this.locked = locked;
     }
 
+    /**
+     * Nastaví kľúč, pomocou ktorej bude možné miestnosť odomknúť..
+     *
+     * @param key, kľúč
+     */
     public void setKey(Item key){
         this.key = key;
     }
 
+    /**
+     * Vratí kľúč, pomocou ktorej bude možné miestnosť odomknúť..
+     *
+     * @return key, kľúč
+     */
     public Item getKey(){
         return key;
     }

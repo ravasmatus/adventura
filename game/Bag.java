@@ -3,39 +3,69 @@ package game;
 import java.util.*;
 
 /**
- * Třída představující inventář hráče. Její implementaci musíte připravit
- * Vy. Inventář musí mít omezenou kapacitu <i>(maximální počet předmětů,
- * váha předmětů, kombinace obou podmínek apod.)</i>. Ve hře nesmí být
- * možné sbírat předměty do nekonečna - hráč by se měl dostat do situace,
- * že bude mít k dispozici více předmětů, než kolik se jich do inventáře
- * vejde, a bude muset volit, které předměty nechá v prostoru a které si
- * vezme s sebou.
+ * Třída představující inventář hráče, ktorý má formu TreeSetu - t.j. je usporiadaný.
+ * Inventář má omezenou kapacitu <i>(maximální počet předmětů)</i> - t.j. v hre nie je možné zbierať veci donekonečna.
+ * 
  *
  * @author Matus Ravas
  * @version 26-12-2020
  */
 public class Bag {
-    private TreeSet<Item> bagContent; //vytvoríme treeset - aby boli predmety usporiadené
-    private static final int CAPACITY = 6; //atribút, s max kapacitou 6
+    private TreeSet<Item> bagContent; 
+    private static final int CAPACITY = 6; 
 
+    /**
+     * Hlavný konštruktor triedy, ktorý vytvorí nový bag, resp. prázdny TreeSet.
+     *
+     * @author Matus Ravas
+     * @version 26-12-2020
+     */
     public Bag() {
-        bagContent = new TreeSet<Item>(); //konštruktor, ktorým vytvoríme už daný obsah bagu
+        bagContent = new TreeSet<Item>();
     }
 
+    /**
+     * Metóda, pomocou ktorej pridáme do bagu nejaký predmet,
+     * pričom musí mať bag dostatočnú kapacitu a predmet musí byť prenositeľný.
+     * <p>
+     * @param item - konkrétna vec, ktorú budeme chcieť pridať do bagu
+     * @return boolean - vrátime true/false, na základe toho, či sa do bagu vec podarila pridať alebo nie
+     *
+     * @author Matus Ravas
+     * @version 26-12-2020
+     */
     public boolean putItem(Item item) {
-        if (isAvailableCapacity() == true && item.isMoveable() == true) {
+        if (isAvailableCapacity() && item.isMoveable()) {
             bagContent.add(item);
             return true;
         }
-        return false; //metóda, pomocou ktorej pridáme do bagu nejaký predmet, pričom musí mať bag dostatočnú kapacitu a predmetu musí byť prenositeľný
+        return false;
     }
 
+    /**
+     * Metóda, pomocou ktorej odstránime z bagu nejaký predmet
+     * <p>
+     * @param item - konkrétna vec, ktorú budeme chcieť z bagu odstrániť
+     * @return true/fasle -  na základe toho, či sa z bagu vec podarila odstrániť (metóda remove())
+     *
+     * @author Matus Ravas
+     * @version 26-12-2020
+     */
     public boolean deleteItem(Item item) {
 
         return bagContent.remove(item);
         //metóda na odstránenie predmetu z bagu
     }
 
+    /**
+     * Metóda, ktorá zistí, či je v danom bagu názov nejakého predmetu.
+     * <p>
+     * @param name - názov konkrétnej veci, pri ktorej chcem overiť, či sa v bagu nachádza
+     * @return true/false -  na základe toho, či sa v bagu daná položka nachádza alebo nie
+     *
+     * @author Matus Ravas
+     * @version 26-12-2020
+     */
     public boolean containsItemName(String name){
 
         for(Item i : bagContent){
@@ -44,33 +74,71 @@ public class Bag {
             }
         }
         return false;
-        //metóda, ktorá zistí, či je v danom bagu názov nejakého predmetu, a vráti true/false
+
     } 
 
+    /**
+     * Metóda, ktorá na základe mena konkrétnej veci vráti konkrétny item
+     * <p>
+     * @param name - názov konkrétnej veci, na základe ktorej chcem získať celý item
+     * @return tmp - konkrétny item
+     * <p>
+     * pozn.: danú metódu použijem až keď sa presvedčím, že meno daného predmetu vôbec existuje - t.j
+     * daná metóda vždy vráti nejaký item.
+     *
+     * @author Matus Ravas
+     * @version 26-12-2020
+     */
     public Item getItemByName(String name){
         Item tmp=null;
         for(Item i : bagContent){
             if(i.getName().equals(name)){
                 tmp=i;
-                return i;
+                break;
             }
         }
         return tmp;
-        //metóda, ktorá vráti len meno daného predmetu
     }
 
-    private boolean containsItem(Item item) {
+    /**
+     * Metóda, ktorá na základe konkrétneho itemu vráti informáciu, či sa nachádza v bagu.
+     * <p>
+     * @param name - konkrétna vecc, na základe ktorej chcem získať hodnotu true/false
+     * @return true/false - metóda contains()
+     * 
+     * 
+     * @author Matus Ravas
+     * @version 26-12-2020
+     */
+    public boolean containsItem(Item item) {
         return bagContent.contains(item);
-        //metóda, ktorá vráti info, či sa v bagu nachádza nejaký predmet
     }
 
+    /**
+     * Metóda, ktorá zistí či má daný bag ešte dostatočnú kapacitu. Veľkosť bagu porovná s prednastavenou hodnotou v CAPACITY.
+     * <p>
+     * 
+     * @return boolean - metóda vráti hodnotu true/false na základe toho, či ešte máme dostatočnú kapacitu
+     * 
+     * 
+     * @author Matus Ravas
+     * @version 26-12-2020
+     */
     public boolean isAvailableCapacity() {
         return (bagContent.size() < CAPACITY);
-        //metóda, ktorá zistí či má daný bag ešte dostatočnú kapacitu
     }
 
-    //prepíšeme metódu toString aby vrátila názvy všetkych položiek Treesetu vo forme jedného reťazca
-    //môžme to spraviť pomocou prepísania toString v Item - vypíše len názov Itemu
+    /**
+     * Prepíšeme metódu toString, aby vrátila názvy všetkych položiek Treesetu vo forme jedného reťazca.
+     * Toto je možné vďaka tomu, že sme taktiež prepísali metódu toString v Item.
+     * <p>
+     * 
+     * @return list - reťazec, ktorý bude obsahovať názvy jednotlivých vecí
+     * 
+     * 
+     * @author Matus Ravas
+     * @version 26-12-2020
+     */
     @Override
     public String toString(){
         String list=""; //vytvorí prázdny reťazec
@@ -82,5 +150,18 @@ public class Bag {
 
     }
 
-    public TreeSet<Item> getTreeset() {return bagContent;};
+    /** !!!!?????
+     * Metóda, ktorá nám vráti konkrétny obsah bagu.
+     * <p>
+     * 
+     * @return bagContent - TreeSet, ktorý obsahuje jednotlivé veci
+     * 
+     * 
+     * @author Matus Ravas
+     * @version 26-12-2020
+     */
+    public TreeSet<Item> getTreeset(){
+        return bagContent;
+    }
+
 }

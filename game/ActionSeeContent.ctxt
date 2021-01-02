@@ -1,9 +1,13 @@
 #BlueJ class context
 comment0.target=ActionSeeContent
+comment0.text=\r\n\ Trieda,\ ktor\u00E1\ implementuje\ pr\u00EDkaz,\ ktor\u00E1\ zobraz\u00ED\ predmety\ v\ bagu.\ \r\n\r\n\ @author\ Mat\u00FA\u0161\ Ravas\r\n\ @version\ 2021-01-02\r\n
 comment1.params=game
 comment1.target=ActionSeeContent(Game)
+comment1.text=\r\n\ Konstruktor\ t\u0159\u00EDdy.\r\n\r\n\ @param\ game\ hra,\ ve\ kter\u00E9\ se\ bude\ p\u0159\u00EDkaz\ pou\u017E\u00EDvat\r\n
 comment2.params=
 comment2.target=java.lang.String\ getName()
+comment2.text=\r\n\ Metoda\ vrac\u00ED\ n\u00E1zev\ p\u0159\u00EDkazu\ tj.&nbsp;\ slovo\ <b>zobraz_obsah</b>.\r\n\r\n\ @return\ n\u00E1zev\ p\u0159\u00EDkazu\r\n
 comment3.params=parameters
 comment3.target=java.lang.String\ execute(java.lang.String[])
+comment3.text=\r\n\ V\ pr\u00EDpade,\ \u017Ee\ hr\u00E1\u010D\ zad\u00E1\ nejak\u00FD\ parameter,\ hra\ vyp\u00ED\u0161e\ chybov\u00E9\ hl\u00E1senie.\ Najsk\u00F4r\ si\ met\u00F3da\ z\u00EDska\ aktu\u00E1lny\ bag\ z\ hry.\r\n\ Potom,\ v\u010Faka\ tomu,\ \u017Ee\ sme\ prep\u00EDsali\ met\u00F3du\ toString,\ vyp\u00ED\u0161e\ na\ konzolu.\r\n\r\n\ @param\ parameters\ parametry\ p\u0159\u00EDkazu\ <i>(neo\u010Dak\u00E1vame\ \u017Eiadny\ parameter)</i>\r\n\ @return\ informace\ pro\ hr\u00E1\u010De,\ kter\u00E9\ hra\ vyp\u00ED\u0161e\ na\ konzoli\r\n
 numComments=4

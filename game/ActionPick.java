@@ -3,8 +3,8 @@ package game;
 /**
  * Třída implementující příkaz pro sbírání předmětů.
  *
- * @author Jan Říha
- * @version ZS-2020, 2020-12-14
+ * @author Jan Říha, edited by Matúš Ravas
+ * @version 2021-01-02
  */
 public class ActionPick implements IAction {
     private Game game;
@@ -35,8 +35,10 @@ public class ActionPick implements IAction {
      * více parametrů <i>(tj. hráč chce sebrat více předmětů současně)</i>, vrátí
      * chybové hlášení. Pokud byl zadán právě jeden parametr, zkontroluje, zda
      * v aktuálním prostoru je předmět s daným názvem, zda je přenositelný a zda
-     * na něj hráč má v inventáři místo <i>(tj. zda ho lze sebrat)</i>. Pokud ne,
-     * vrátí chybové hlášení. Pokud všechny kontroly proběhnou v pořádku, provede
+     * na něj hráč má v inventáři místo <i>(tj. zda ho lze sebrat)</i>.Pokud ne,
+     * vrátí chybové hlášení. Následne skontroluje,
+     * či daný predmet nie je potrebné zakápiť. Ak ánom vypíše chybové
+     * hlásenie a ukončí hru. Pokud všechny kontroly proběhnou v pořádku, provede
      * přesun předmětu z prostoru do inventáře a vrátí informaci o sebrání předmětu.
      *
      * @param parameters parametry příkazu <i>(očekává se pole s jedním prvkem)</i>

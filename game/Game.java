@@ -11,8 +11,8 @@ package game;
  * <p>
  * Během hry třída vyhodnocuje jednotlivé příkazy zadané uživatelem.
  *
- * @author Jan Říha
- * @version ZS-2020, 2020-12-14
+ * @author Jan Říha, edited by Matúš Ravas
+ * @version 2020-01-02
  */
 public class Game
 {
@@ -146,6 +146,18 @@ public class Game
         }
     }
 
+    
+ /**
+ * Metóda, ktorá overí, či sa naša aktuálna lokácia zhoduje s tou, ktorá je nastavená ako výherná.
+ * Zároveň overí, či sa v aktuálnej lokácií nachádza aj výherný predmet.
+ * 
+ * @return výsledok spracovania - informácia, ktorá sa vypíše na konzolu, keď hráč hru vyhrá.
+ *
+ * @author Jan Říha, edited by Matúš Ravas
+ * @version ZS-2020, 2020-12-07
+ * 
+ */
+    
     private String checkGameEnd()
     {
         if (World.VICTORIOUS_PLACE_HOME_NAME.equals(world.getCurrentPlace().getName())) {
@@ -160,6 +172,14 @@ public class Game
         return null;
     }
 
+ /**
+ * Metóda, ktorá inicializuje novú hru, t.j. budeme sa nachádzať v predvolenej lokácii a obsah bagu bude prázdny.
+ *
+ *@return úvodná popis hry, ktorý sa hráčovi vypíše na konzolu
+ *
+ * @author Jan Říha
+ * @version ZS-2020, 2020-12-07
+ */
     private String startGame()
     {
         gameOver = false;

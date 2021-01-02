@@ -5,7 +5,7 @@ package tests;
  * je možno hrát hru, pro kterou jsou určeny. Aby bylo možno jednotlivé
  * scénáře od sebe odlišit, je každý pojmenován.
  *
- * @author  Rudolf PECINOVSKÝ
+ * @author  Matúš Ravas
  * @version 2020-Winter
  */
 public enum Scenario implements IScenario
@@ -965,8 +965,18 @@ public enum Scenario implements IScenario
     new String[] { }
     ),
     
-    new ScenarioStep("ukaz_predmety", //najskôr skontrolujeme predmety na základnom stanovišti
+    new ScenarioStep("ukaz_predmety", //predmety skontrolujeme znova
     "V miestnosti su: peňaženka  bunda  klíče ", 
+
+    "bar",
+    new String[] { "kvetinarstvo","trafika","tram_olšanská" },
+    new String[] { "klíče", "peňaženka", "bunda" },
+    new String[] { },
+    new String[] { }
+    ),
+    
+     new ScenarioStep("ukaz_predmety dd", //prikaz s parametrom
+    "Nepotrebujem ziadny parameter.", 
 
     "bar",
     new String[] { "kvetinarstvo","trafika","tram_olšanská" },
@@ -1046,6 +1056,16 @@ public enum Scenario implements IScenario
     new String[] { "peňaženka","kvety"},
     new String[] {"predavač", "upratovač" }
     ),
+            new ScenarioStep("zobraz_obsah dfd", //príkaz s parametrom
+    "Tento prikaz nepotrebuje ziadny parameter", 
+
+    "kvetinarstvo",
+    new String[] { "bar","trafika", "tram_olšanská"},
+    new String[] { "hnojivo"},
+    new String[] { "peňaženka","kvety"},
+    new String[] {"predavač", "upratovač" }
+    ),
+  
     
      new ScenarioStep("seber hnojivo", //pokúsim sa zobrať predmet, ktorý je potrbné kúpiť
     "Pokúsil si sa predmet 'hnojivo' zobrať bez zaplatenia. Personál na teba zavolal políciu. Prehral si.", 
@@ -1056,7 +1076,8 @@ public enum Scenario implements IScenario
     new String[] {  "peňaženka","kvety" },
     new String[] { "predavač", "upratovač" }
     )
-  
+    
+ 
     ),
     
     ACTION_PUT ( //test príkazu, ktorý položí položky z bagu späť na určené miesto

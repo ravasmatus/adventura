@@ -1,18 +1,42 @@
 package game;
-
+/**
+ * Trieda, ktorá implementuje príkaz kúpiť. 
+ *
+ * @author Matúš Ravas
+ * @version 2021-01-02
+ */
 
 public class ActionBuy implements IAction {
     private Game game;
 
+     /**
+     * Konstruktor třídy.
+     *
+     * @param game hra, ve které se bude příkaz používat
+     */
     public ActionBuy(Game game) {
         this.game = game;
     }
 
+    /**
+     * Metoda vrací název příkazu tj.&nbsp; slovo <b>kup</b>.
+     *
+     * @return název příkazu
+     */
     @Override
     public String getName() {
         return "kup";
     }
 
+      /**
+     * V případě, že je metoda zavolána bez parametrů, s jedným alebo viac ako 2 parametrami, hráčovi sa 
+     * vypíše chybové hlásenie. Metóda najskôr overí, či sa daná vec nachádza v danom priestore, potom či je potrebné
+     * ju zakúpiť. Následne zistí, či sa daný človek na mieste nachádza, a či je daná osoba spôsobilá nám ho predať.
+     * Ako posledné overí, či máme pri sebe peňaženku a či nemáme plný inventár. 
+     *
+     * @param parameters parametry příkazu <i>(očakávame 2 parametre)</i>
+     * @return informace pro hráče, které hra vypíše na konzoli
+     */
     @Override
     public String execute(String... parameters) {
         if (parameters.length == 0) {  // pokial hrac nezada, co ma kupit
