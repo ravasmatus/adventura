@@ -28,8 +28,7 @@ public class ActionItemsInPlace implements IAction
         return "ukaz_predmety";
     }
 
-    
-      /**
+    /**
      * V prípade, že hráč zadá nejaký parameter, hra vypíše chybové hlásenie. Najskôr si metóda získa aktuálnu miestnosť
      * a vytvorí nový reťazec, do ktorého postupne pomocou cyklu naplní predmety.
      *
@@ -41,7 +40,7 @@ public class ActionItemsInPlace implements IAction
         if (parameters.length != 0) {
             return "Nepotrebujem ziadny parameter.";
         }
-        
+
         Place currentPlace = game.getWorld().getCurrentPlace(); //získam aktuálne miesto
         String itemNames = "V miestnosti su:"; //vytvoríme nový reťazec
         for (Item i : currentPlace.getItems()) { //cyklusom prejdeme aktuálne predmety v lokácii

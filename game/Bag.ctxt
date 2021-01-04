@@ -27,5 +27,5 @@ comment8.target=java.lang.String\ toString()
 comment8.text=\r\n\ Prep\u00ED\u0161eme\ met\u00F3du\ toString,\ aby\ vr\u00E1tila\ n\u00E1zvy\ v\u0161etkych\ polo\u017Eiek\ Treesetu\ vo\ forme\ jedn\u00E9ho\ re\u0165azca.\r\n\ Toto\ je\ mo\u017En\u00E9\ v\u010Faka\ tomu,\ \u017Ee\ sme\ taktie\u017E\ prep\u00EDsali\ met\u00F3du\ toString\ v\ Item.\r\n\ <p>\r\n\ \r\n\ @return\ list\ -\ re\u0165azec,\ ktor\u00FD\ bude\ obsahova\u0165\ n\u00E1zvy\ jednotliv\u00FDch\ vec\u00ED\r\n\ \r\n\ \r\n\ @author\ Matus\ Ravas\r\n\ @version\ 26-12-2020\r\n
 comment9.params=
 comment9.target=java.util.TreeSet\ getTreeset()
-comment9.text=\ \!\!\!\!?????\r\n\ Met\u00F3da,\ ktor\u00E1\ n\u00E1m\ vr\u00E1ti\ konkr\u00E9tny\ obsah\ bagu.\r\n\ <p>\r\n\ \r\n\ @return\ bagContent\ -\ TreeSet,\ ktor\u00FD\ obsahuje\ jednotliv\u00E9\ veci\r\n\ \r\n\ \r\n\ @author\ Matus\ Ravas\r\n\ @version\ 26-12-2020\r\n
+comment9.text=\ \r\n\ Met\u00F3da,\ ktor\u00E1\ n\u00E1m\ vr\u00E1ti\ konkr\u00E9tny\ obsah\ bagu.\r\n\ <p>\r\n\ \r\n\ @return\ bagContent\ -\ TreeSet,\ ktor\u00FD\ obsahuje\ jednotliv\u00E9\ veci\r\n\ \r\n\ \r\n\ @author\ Matus\ Ravas\r\n\ @version\ 26-12-2020\r\n
 numComments=10

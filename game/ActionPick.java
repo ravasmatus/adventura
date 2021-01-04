@@ -67,7 +67,7 @@ public class ActionPick implements IAction {
         }
 
         Bag bag = game.getBag();
-        
+
         if(item.isMoneyRequired()){ //zistím, či daný predmet je potrebné kúpiť. Ak áno, hráč hru prehrá.
             game.setGameOver(true);
             return "Pokúsil si sa predmet '" + itemName + "' zobrať bez zaplatenia. Personál na teba zavolal políciu. Prehral si.";

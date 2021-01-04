@@ -150,7 +150,7 @@ public class Bag {
 
     }
 
-    /** !!!!?????
+    /** 
      * Metóda, ktorá nám vráti konkrétny obsah bagu.
      * <p>
      * 

@@ -6,11 +6,10 @@ package game;
  * @version 2021-01-02
  */
 
-
 public class ActionSeeContent implements IAction
 {
     private Game game;
-    
+
     /**
      * Konstruktor třídy.
      *
@@ -20,8 +19,8 @@ public class ActionSeeContent implements IAction
     {
         this.game = game;
     }
-    
-     /**
+
+    /**
      * Metoda vrací název příkazu tj.&nbsp; slovo <b>zobraz_obsah</b>.
      *
      * @return název příkazu
@@ -31,8 +30,7 @@ public class ActionSeeContent implements IAction
         return "zobraz_obsah";
     }
 
-
-     /**
+    /**
      * V prípade, že hráč zadá nejaký parameter, hra vypíše chybové hlásenie. Najskôr si metóda získa aktuálny bag z hry.
      * Potom, vďaka tomu, že sme prepísali metódu toString, vypíše na konzolu.
      *
